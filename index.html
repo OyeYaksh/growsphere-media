@@ -1,357 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GrowSphere Media | Social Media Marketing Agency</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowSphere Media | Social Media Marketing Agency</title>
 
-  <style>
-    :root{
-      --bg:#0f1115;
-      --card:#161a22;
-      --accent:#4ade80;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-    }
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    }
+<style>
+:root{
+  --bg:#0f1115;
+  --card:#161a22;
+  --accent:#4ade80;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+}
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+html{ scroll-behavior:smooth; }
 
-    .container{
-      width:90%;
-      max-width:1100px;
-      margin:auto;
-    }
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    /* ===== HERO ===== */
-    header{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
 
-    header h1{
-      font-size:clamp(2.2rem,5vw,3.5rem);
-      margin-bottom:1rem;
-    }
+section{ padding:5rem 0; }
 
-    header h1 span{
-      color:var(--accent);
-    }
+h2{
+  text-align:center;
+  font-size:2.2rem;
+  margin-bottom:1rem;
+}
 
-    header p{
-      max-width:700px;
-      margin:0 auto 2rem;
-      color:var(--muted);
-      font-size:1.1rem;
-    }
+h2 span{ color:var(--accent); }
 
-    .btn{
-      display:inline-block;
-      padding:0.9rem 1.8rem;
-      background:var(--accent);
-      color:#052e16;
-      font-weight:600;
-      border-radius:8px;
-      transition:0.3s;
-    }
+p.desc{
+  text-align:center;
+  color:var(--muted);
+  max-width:700px;
+  margin:0 auto 3rem;
+}
 
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 30px rgba(74,222,128,0.25);
-    }
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:#052e16;
+  padding:0.9rem 1.8rem;
+  border-radius:8px;
+  font-weight:600;
+  transition:.3s;
+}
 
-    /* ===== SECTION ===== */
-    section{
-      padding:5rem 0;
-    }
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(74,222,128,.3);
+}
 
-    section h2{
-      font-size:2.2rem;
-      margin-bottom:1.5rem;
-      text-align:center;
-    }
+/* HERO */
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
 
-    section h2 span{
-      color:var(--accent);
-    }
+header h1{
+  font-size:clamp(2.4rem,5vw,3.6rem);
+}
 
-    section p.section-desc{
-      text-align:center;
-      max-width:700px;
-      margin:0 auto 3rem;
-      color:var(--muted);
-    }
+header span{ color:var(--accent); }
 
-    /* ===== ABOUT ===== */
-    .about{
-      background:var(--card);
-      border-radius:16px;
-      padding:3rem;
-    }
+header p{
+  margin:1rem auto 2rem;
+  max-width:700px;
+  color:var(--muted);
+}
 
-    /* ===== SERVICES ===== */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:1.5rem;
-    }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
 
-    .card{
-      background:var(--card);
-      padding:2rem;
-      border-radius:14px;
-      transition:0.3s;
-    }
+.card{
+  background:var(--card);
+  padding:2rem;
+  border-radius:14px;
+}
 
-    .card:hover{
-      transform:translateY(-6px);
-    }
+/* FORM */
+form{
+  max-width:600px;
+  margin:0 auto;
+  display:grid;
+  gap:1rem;
+}
 
-    .card h3{
-      margin-bottom:0.7rem;
-    }
+input,textarea{
+  width:100%;
+  padding:0.8rem;
+  border-radius:8px;
+  border:none;
+  background:#0b0d11;
+  color:var(--text);
+}
 
-    .card p{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
+textarea{ min-height:120px; }
 
-    /* ===== PROCESS ===== */
-    .process-step{
-      display:flex;
-      gap:1rem;
-      align-items:flex-start;
-    }
-
-    .step-num{
-      min-width:40px;
-      height:40px;
-      background:var(--accent);
-      color:#052e16;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-    }
-
-    /* ===== TESTIMONIAL ===== */
-    .testimonial{
-      font-style:italic;
-    }
-
-    .testimonial span{
-      display:block;
-      margin-top:0.7rem;
-      font-style:normal;
-      color:var(--accent);
-      font-weight:600;
-    }
-
-    /* ===== CONTACT ===== */
-    .contact{
-      text-align:center;
-    }
-
-    .contact p{
-      margin-bottom:1rem;
-      color:var(--muted);
-    }
-
-    footer{
-      padding:2rem 0;
-      text-align:center;
-      color:var(--muted);
-      font-size:0.9rem;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media(max-width:600px){
-      .about{
-        padding:2rem;
-      }
-    }
-  </style>
+footer{
+  text-align:center;
+  padding:2rem;
+  color:var(--muted);
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <header>
-    <div class="container">
-      <h1><span>GrowSphere</span> Media</h1>
-      <p>
-        We help brands grow, scale & dominate on social media using
-        data-driven strategies, high-performing content, and result-focused execution.
-      </p>
-      <a href="#contact" class="btn">Book a Free Strategy Call</a>
-    </div>
-  </header>
+<!-- HERO -->
+<header>
+  <div class="container" data-aos="fade-up">
+    <h1><span>GrowSphere</span> Media</h1>
+    <p>We help brands grow, scale & dominate on social media using data-driven strategies.</p>
 
-  <!-- ABOUT -->
-  <section>
-    <div class="container">
-      <h2>About <span>Us</span></h2>
-      <p class="section-desc">
-        A results-focused social media marketing agency built for modern brands.
-      </p>
-      <div class="about">
-        <p>
-          GrowSphere Media helps businesses, creators, and startups build a strong
-          online presence and generate consistent leads.
-          <br><br>
-          We don’t believe in random posting. We build strategic content systems,
-          performance-driven campaigns, and scalable growth frameworks that convert
-          attention into revenue.
-        </p>
-      </div>
-    </div>
-  </section>
+    <!-- WhatsApp CTA -->
+    <a href="https://wa.me/91XXXXXXXXXX?text=I%20want%20a%20free%20strategy%20call" class="btn">
+      Chat on WhatsApp
+    </a>
+  </div>
+</header>
 
-  <!-- SERVICES -->
-  <section>
-    <div class="container">
-      <h2>Our <span>Services</span></h2>
-      <p class="section-desc">
-        End-to-end social media solutions designed to grow your brand.
-      </p>
+<!-- ABOUT -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">About <span>Us</span></h2>
+<p class="desc" data-aos="fade-up">
+A results-focused social media marketing agency.
+</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Social Media Management</h3>
-          <p>Complete handling of your social platforms with a clear growth strategy.</p>
-        </div>
+<div class="card" data-aos="fade-up">
+GrowSphere Media helps businesses, creators and startups generate consistent leads and sales.
+We focus on strategy, performance and long-term growth — not random posting.
+</div>
+</div>
+</section>
 
-        <div class="card">
-          <h3>Content Creation & Video Editing</h3>
-          <p>High-converting reels, shorts, and videos built for attention.</p>
-        </div>
+<!-- SERVICES -->
+<section>
+<div class="container">
+<h2 data-aos="fade-up">Our <span>Services</span></h2>
+<p class="desc" data-aos="fade-up">End-to-end solutions to grow your brand.</p>
 
-        <div class="card">
-          <h3>Instagram & YouTube Growth</h3>
-          <p>Organic systems to increase reach, followers, and engagement.</p>
-        </div>
+<div class="grid">
+<div class="card" data-aos="zoom-in">Social Media Management</div>
+<div class="card" data-aos="zoom-in">Content Creation & Video Editing</div>
+<div class="card" data-aos="zoom-in">Instagram & YouTube Growth</div>
+<div class="card" data-aos="zoom-in">Paid Ads (Meta & Google)</div>
+<div class="card" data-aos="zoom-in">Branding & Strategy</div>
+</div>
+</div>
+</section>
 
-        <div class="card">
-          <h3>Paid Ads (Meta & Google)</h3>
-          <p>ROI-focused ad campaigns that generate quality leads.</p>
-        </div>
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<h2 data-aos="fade-up">Free <span>Consultation</span></h2>
+<p class="desc" data-aos="fade-up">
+Fill the form or WhatsApp us directly.
+</p>
 
-        <div class="card">
-          <h3>Branding & Creative Strategy</h3>
-          <p>Build a brand identity that connects and converts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FORM (Formspree) -->
+<form action="https://formspree.io/f/xxxxabcd" method="POST" data-aos="fade-up">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="tel" name="phone" placeholder="Mobile Number" required>
+<textarea name="message" placeholder="Tell us about your business"></textarea>
+<button class="btn" type="submit">Send Inquiry</button>
+</form>
 
-  <!-- PROCESS -->
-  <section>
-    <div class="container">
-      <h2>How We <span>Work</span></h2>
-      <p class="section-desc">
-        A simple, proven process focused on performance.
-      </p>
+<br><br>
+<a href="https://wa.me/91XXXXXXXXXX" class="btn" data-aos="fade-up">WhatsApp Direct</a>
+</div>
+</section>
 
-      <div class="grid">
-        <div class="card process-step">
-          <div class="step-num">1</div>
-          <div>
-            <h3>Strategy & Audit</h3>
-            <p>We analyze your brand, competitors, and audience.</p>
-          </div>
-        </div>
+<footer>
+© 2026 GrowSphere Media. All rights reserved.
+</footer>
 
-        <div class="card process-step">
-          <div class="step-num">2</div>
-          <div>
-            <h3>Content & Funnel Planning</h3>
-            <p>We design content that attracts, nurtures, and converts.</p>
-          </div>
-        </div>
-
-        <div class="card process-step">
-          <div class="step-num">3</div>
-          <div>
-            <h3>Execution & Optimization</h3>
-            <p>Publishing, ads management, and performance tracking.</p>
-          </div>
-        </div>
-
-        <div class="card process-step">
-          <div class="step-num">4</div>
-          <div>
-            <h3>Growth & Scaling</h3>
-            <p>Double down on what works and scale results.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section>
-    <div class="container">
-      <h2>Client <span>Results</span></h2>
-      <p class="section-desc">
-        What our clients say about working with us.
-      </p>
-
-      <div class="grid">
-        <div class="card testimonial">
-          “GrowSphere Media helped us generate quality leads within the first month.”
-          <span>Business Owner</span>
-        </div>
-
-        <div class="card testimonial">
-          “Professional team with real strategy, not fake promises.”
-          <span>Coach & Creator</span>
-        </div>
-
-        <div class="card testimonial">
-          “Our social media finally started converting into sales.”
-          <span>Startup Founder</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container contact">
-      <h2>Let’s <span>Grow</span></h2>
-      <p>
-        Ready to scale your brand on social media?
-      </p>
-      <p>
-        📩 Email: contact@growspheremedia.com <br/>
-        📱 WhatsApp: +91 XXXXX XXXXX
-      </p>
-      <a href="#" class="btn">Start Free Consultation</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 GrowSphere Media. All rights reserved.
-  </footer>
+<!-- AOS SCRIPT -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration:800, once:true });
+</script>
 
 </body>
 </html>
